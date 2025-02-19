@@ -4,6 +4,14 @@ import { Link } from "react-router-dom";
 import { styles } from "../styles";
 import { navLinks } from "../constants";
 import { logo, menu, close } from "../assets";
+import { MorphingText } from "./magicui/morphing-text";
+
+const texts = [
+  "WebDeveloper",
+  "MERN",
+  "ReactDeveloper",
+  "PythonProgrammer",
+];
 
 const Navbar = () => {
   const [active, setActive] = useState("");
@@ -44,8 +52,10 @@ const Navbar = () => {
         >
           <img src={logo} alt="logo" className="w-9 h-9 object-contain" />
           <p className="text-white text-[18px] font-bold cursor-pointer flex ">
-            Jatin &nbsp;
-            <span className="sm:block hidden"> | Developer</span>
+            Jatin &nbsp;|
+            <span className="sm:block hidden px-2">
+              <MorphingText texts={texts} />
+            </span>
           </p>
         </Link>
 

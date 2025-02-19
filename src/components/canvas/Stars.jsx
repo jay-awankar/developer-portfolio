@@ -1,11 +1,40 @@
-import React from 'react'
+// import React from 'react'
 
-const Stars = () => {
-  return <div>Stars</div>;
-};
+// const Stars = () => {
+//   return <div>Stars</div>;
+// };
 
-export default Stars;
+// export default Stars;
 
+"use client";
+
+import { useTheme } from "next-themes";
+import React, { useEffect, useState } from "react";
+
+import { Particles } from "../magicui/particles";
+
+const StarsCanvas = () => {
+  const { resolvedTheme } = useTheme();
+  const [color, setColor] = useState("#ffffff");
+
+  // useEffect(() => {
+  //   setColor(resolvedTheme === "dark" ? "#ffffff" : "#000000");
+  // }, [resolvedTheme]);
+
+  return (
+    <div className=" w-full h-auto absolute inset-0 z-[-1] flex flex-col items-center justify-center overflow-hidden rounded-lg ">
+      <Particles
+        className="absolute inset-0 z-0"
+        quantity={100}
+        ease={80}
+        color={color}
+        refresh
+      />
+    </div>
+  );
+}
+
+export default StarsCanvas
 
 // import { useState, useRef, Suspense } from "react";
 // import { Canvas, useFrame } from "@react-three/fiber";
